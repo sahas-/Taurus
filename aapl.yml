@@ -1,0 +1,22 @@
+---
+modules:
+  cloud:
+    token: ""
+execution:
+  - locations:
+      us-west-2: 1
+      us-east-1: 1
+    locations-weighted: true
+    concurrency:
+      cloud: 25
+      local: 1
+    throughput:
+      local: 10
+      cloud: 10
+    iterations: 10
+    scenario: sample
+scenarios:
+  sample:
+    requests:
+      - url: "http://finance.yahoo.com/q?s=aapl"
+        method: GET
